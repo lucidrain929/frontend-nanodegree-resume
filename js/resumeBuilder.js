@@ -13,23 +13,27 @@ var bio = {
 };
 
 bio.display = function() {
-	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-	$("#header").prepend(formattedRole);
+	/*var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	$("#header").prepend(formattedRole);*/
 
-	var formattedName = HTMLheaderName.replace("%data%", bio.name); 
+	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	$("#header").prepend(formattedName);
 
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	$("#topContacts").append(formattedMobile);
+	$("#footerContacts").append(formattedMobile);
 
-	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 	$("#topContacts").append(formattedEmail);
+    $("#footerContacts").append(formattedEmail);
 
 	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
 	$("#topContacts").append(formattedGithub);
+	$("#footerContacts").append(formattedGithub);
 
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	$("#topContacts").append(formattedLocation);
+    $("#footerContacts").append(formattedLocation);
 
 	var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 	$("#header").append(formattedMsg);
@@ -95,28 +99,31 @@ var education = {
             "degree": "Bechalor of Literature",
             "location": "Changsha, China",
             "date": "Septemnber 2016-May 2014",
-            "major": "English"
+            "majors":  ["English"],
+            "url": "http://www.hunnu.edu.cn/"
 		},
 		{
 			"name": "Hunan Normal University",
             "degree": "Master of Literature",
             "location": "Changsha, China",
             "date": "September 2010-June 2013",
-            "major": "Translation"
+            "majors": ["Translation"],
+            "url": "http://www.hunnu.edu.cn/"
 		},
 		{
 			"name": "Forstburg State University",
 			"degree": "Master of business administration and managment",
 			"location": "Forstburg, Maryland",
 			"date": "August 2011-May-2014",
-			"major": "business of administration and management"
+			"majors": ["business of administration and management"],
+			"url": "http://www.hunnu.edu.cn/"
 		}
 	],
-    "onlinecourses": [
+    "onlineCourses": [
         {
         	"title": "front end web developer",
         	"school": "Udacity",
-        	"dates": "January 2016-Present",
+        	"date": "January 2016-Present",
         	"URL": "https://classroom.udacity.com/nanodegrees/nd001/syllabus"
         }
     ]
@@ -128,54 +135,58 @@ education.display = function() {
 		var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
 		var formattedDegree =  HTMLschoolDegree.replace("%data%", education.schools[i].degree);
 		$(".education-entry:last").append(formattedSchoolName + formattedDegree);
+		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
+		$(".education-entry:last").append(formattedLocation);
 
 		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].date);
 		$(".education-entry:last").append(formattedDates);
 
-		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].majors[0]);
 		$(".education-entry:last").append(formattedMajor);
 	}
 
-	for (var items in education.onlinecourses) {
-		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlinecourses[items].title);
-		$(".education-entry").append(formattedOnlineTitle);
+	for (var items in education.onlineCourses) {
+		$(".education-entry").append(HTMLonlineClasses);
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[items].title);
+	    var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[items].school);
+		$(".education-entry").append(formattedOnlineTitle+formattedOnlineSchool);
 
-		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlinecourses[items].school);
-		$(".education-entry").append(formattedOnlineSchool);
-
-		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlinecourses[items].dates);
+		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[items].date);
 		$(".education-entry").append(formattedOnlineDates);
 
-		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlinecourses[items].URL);
+		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[items].URL);
 		$(".education-entry").append(formattedOnlineURL);
 	}
 };
 education.display();
 
-var projectsinfo = {
+var projects = {
 	  "project":[
 	    { "title": "Online Portfolio",
 	      "dates": "March 2016",
-	      "description": "a reponsive webpage"
+	      "description": "a reponsive webpage",
+	      "images": ["http://i.imgur.com/TX4LsR6.jpg?1"]
 	     }
 	  ]
 };
 
-projectsinfo.display=function() {
+projects.display=function() {
 	$("#projects").append(HTMLprojectStart);
 
-	for (var things in projectsinfo.project) {
-	    var formattedTitle = HTMLprojectTitle.replace("%data%", projectsinfo.project[things].title);
+	for (var things in projects.project) {
+	    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[things].title);
 	    $(".project-entry").append(formattedTitle);
 	}
 
-	var formattedDates = HTMLprojectDates.replace("%data%",projectsinfo.project[things].dates);
+	var formattedDates = HTMLprojectDates.replace("%data%",projects.project[things].dates);
 	$(".project-entry").append(formattedDates);
-	var formattedDescription = HTMLprojectDescription.replace("%data%", projectsinfo.project[things].description);
+	var formattedDescription = HTMLprojectDescription.replace("%data%", projects.project[things].description);
 	$(".project-entry").append(formattedDescription);
+	var formattedImage = HTMLprojectImage.replace("%data%",projects.project[things].images[0]);
+	$(".project-entry").append(formattedImage);
 };
 
-projectsinfo.display();
+projects.display();
 
 $("#mapDiv").append(googleMap);
 $("#lets-connect").append(internationalizeButton);
