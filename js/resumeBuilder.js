@@ -13,10 +13,7 @@ var bio = {
 };
 
 bio.display = function() {
-	/*var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-	$("#header").prepend(formattedRole);*/
-
-	var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	$("#header").prepend(formattedName);
 
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
@@ -98,7 +95,7 @@ var education = {
 			"name": "Hunan Normal University",
             "degree": "Bechalor of Literature",
             "location": "Changsha, China",
-            "date": "Septemnber 2016-May 2014",
+            "dates": "Septemnber May-2014",
             "majors":  ["English"],
             "url": "http://www.hunnu.edu.cn/"
 		},
@@ -106,7 +103,7 @@ var education = {
 			"name": "Hunan Normal University",
             "degree": "Master of Literature",
             "location": "Changsha, China",
-            "date": "September 2010-June 2013",
+            "dates": "June-2013",
             "majors": ["Translation"],
             "url": "http://www.hunnu.edu.cn/"
 		},
@@ -114,7 +111,7 @@ var education = {
 			"name": "Forstburg State University",
 			"degree": "Master of business administration and managment",
 			"location": "Forstburg, Maryland",
-			"date": "August 2011-May-2014",
+			"dates": "May-2014",
 			"majors": ["business of administration and management"],
 			"url": "http://www.hunnu.edu.cn/"
 		}
@@ -123,8 +120,8 @@ var education = {
         {
         	"title": "front end web developer",
         	"school": "Udacity",
-        	"date": "January 2016-Present",
-        	"URL": "https://classroom.udacity.com/nanodegrees/nd001/syllabus"
+        	"date": "Present",
+        	"url": "https://classroom.udacity.com/nanodegrees/nd001/syllabus"
         }
     ]
 };
@@ -138,7 +135,7 @@ education.display = function() {
 		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
 		$(".education-entry:last").append(formattedLocation);
 
-		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].date);
+		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
 		$(".education-entry:last").append(formattedDates);
 
 		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].majors[0]);
@@ -154,20 +151,21 @@ education.display = function() {
 		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[items].date);
 		$(".education-entry").append(formattedOnlineDates);
 
-		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[items].URL);
+		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[items].url);
 		$(".education-entry").append(formattedOnlineURL);
 	}
 };
 education.display();
 
 var projects = {
-	  "project":[
-	    { "title": "Online Portfolio",
-	      "dates": "March 2016",
-	      "description": "a reponsive webpage",
-	      "images": ["http://i.imgur.com/TX4LsR6.jpg?1"]
-	     }
-	  ]
+       	"project":[
+	        {
+	      	"title": "Online Portfolio",
+	        "dates": "March-2016",
+	        "description": "a reponsive webpage",
+	        "images": ["http://i.imgur.com/TX4LsR6.jpg?1"]
+	        }
+	    ]
 };
 
 projects.display=function() {
