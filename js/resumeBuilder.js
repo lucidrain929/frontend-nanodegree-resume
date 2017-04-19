@@ -1,14 +1,14 @@
 var bio = {
 	"name": "Bella Chen",
-	"role": "web developer",
+	"role": "Web Developer",
 	"contacts":{
 		"mobile": "240-803-8716",
 		"email": "lucidrain929@gmail.com",
 		"github": "lucidrain929",
-		"location": "Austin TX"
+		"location": "Columbia MD"
 	},
-	"welcomeMessage": "welcome to my resume",
-	"skills": ["CSS","HTML","responsive web design","java","javascript","Jquery","boostrap"],
+	"welcomeMessage": "Welcome to my resume",
+	"skills": ["HTML5", "CSS3", "JavaScript", "JQuery", "JSON", "Git", "GitHub", "Bootstrap", "AJAX", "Responsive Design", "OOP"],
 	"biopic":"http://i.imgur.com/jcoaBqK.jpg"
 };
 
